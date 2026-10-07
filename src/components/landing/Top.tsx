@@ -3,23 +3,25 @@ import { Menu, X, MapPin, Monitor } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
 import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
+import logoAsset from "@/assets/logo-vanessa-ballista.jpg.asset.json";
+import { Button } from "@/components/ui/button";
 
 
 export const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#areas", label: "Áreas de cuidado" },
+  { href: "#areas", label: "Cuidados" },
   { href: "#metodo", label: "Método CUIDAR" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#faq", label: "FAQ" },
   { href: "#contato", label: "Contato" },
 ];
 
-export function Logo() {
+export function Logo({ placement = "navbar" }: { placement?: "navbar" | "footer" }) {
   return (
-    <a href="#inicio" className="flex flex-col leading-none">
-      <span className="text-[1.05rem] font-semibold tracking-tight text-primary">Dra. Vanessa Ballista</span>
-      <span className="mt-1 text-[0.62rem] font-medium uppercase tracking-[0.3em] text-secondary">Psiquiatria</span>
+    <a href="#inicio" aria-label="Dra. Vanessa Ballista — início" className="inline-flex shrink-0 items-center">
+      <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1063} height={591}
+        className={placement === "footer" ? "h-24 w-auto max-w-full object-contain" : "h-[50px] w-auto object-contain sm:h-[55px]"} />
     </a>
   );
 }
@@ -30,16 +32,16 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5">
         <Logo />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Principal">
           {NAV.slice(1, 6).map((n) => (
             <a key={n.href} href={n.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{n.label}</a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
           <CtaButton className="hidden min-h-[44px] px-5 text-sm sm:inline-flex">Agendar consulta</CtaButton>
-          <button className="rounded-full p-2.5 text-primary lg:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menu" aria-expanded={open}>
+          <Button variant="ghost" size="icon" className="size-11 rounded-full text-primary lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open}>
             {open ? <X className="size-6" /> : <Menu className="size-6" />}
-          </button>
+          </Button>
         </div>
       </div>
       {open && (

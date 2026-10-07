@@ -192,9 +192,9 @@ export function Footer() {
     <footer className="border-t border-border bg-sand-soft">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <Logo />
-          <p className="mt-4 text-sm text-muted-foreground">{SITE.crm}</p>
-          <address className="mt-4 text-sm not-italic leading-relaxed text-muted-foreground">{a.street}<br />{a.district}, {a.city}<br />CEP {a.zip}</address>
+          <Logo placement="footer" />
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">{SITE.name}</span><br />{SITE.specialty}<br />{SITE.crm}</p>
+          <address className="mt-4 text-sm not-italic leading-relaxed text-muted-foreground">{a.street} — {a.district}<br />{a.city} | {a.zip}</address>
         </div>
         <nav aria-label="Rodapé" className="grid grid-cols-2 gap-2 text-sm">
           {NAV.map((n) => <a key={n.href} href={n.href} className="text-muted-foreground hover:text-primary">{n.label}</a>)}
@@ -202,6 +202,7 @@ export function Footer() {
         <div className="flex flex-col items-start gap-3 text-sm">
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><WhatsAppIcon className="size-5" /> WhatsApp</a>
           {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary">Instagram</a>}
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><MapPin className="size-5" /> Localização</a>
         </div>
       </div>
       <div className="border-t border-border px-5 py-6 text-center text-xs leading-relaxed text-muted-foreground">
