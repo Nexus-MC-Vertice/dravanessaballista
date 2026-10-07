@@ -5,3 +5,4 @@
 - [x] Replace reserved portraits and illustrative office image with supplied real photographs.
 - [x] Integrate the supplied official logo in navbar, footer and favicon; verify across screen sizes.
 - [x] Standardize every WhatsApp contact with the supplied exact message and wa.me URL; verify desktop and mobile.
+- [ ] Add the official Instagram profile to the footer as a secondary contact; verify its link and accessibility.

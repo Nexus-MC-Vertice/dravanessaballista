@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { SITE, whatsappLink } from '../config/site';
 describe('Appointment contact configuration', () => {
+  it('uses the official Instagram profile', () => {
+    expect(SITE.instagram).toBe('https://www.instagram.com/dravanessaballista/');
+  });
   it('opens the official Brazilian WhatsApp number through wa.me', () => {
     expect(SITE.whatsappNumber).toBe('5518996452218');
     const url = new URL(whatsappLink());
