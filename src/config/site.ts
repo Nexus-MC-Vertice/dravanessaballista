@@ -4,7 +4,7 @@ export const SITE = {
   specialty: "Psiquiatria",
   crm: "CRM/SP 214.721",
   // TODO: inserir número real no formato DDI+DDD+número, ex: "5518999999999"
-  whatsappNumber: "5518000000000",
+  whatsappNumber: "",
   whatsappMessage: "Olá, Dra. Vanessa! Gostaria de informações sobre uma consulta de Psiquiatria.",
   instagram: "", // adicionar quando fornecido
   address: {
@@ -20,4 +20,6 @@ export const SITE = {
 };
 
 export const whatsappLink = () =>
-  `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`;
+  SITE.whatsappNumber
+    ? `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`
+    : "#contato";

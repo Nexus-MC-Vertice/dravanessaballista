@@ -61,7 +61,7 @@
   --ring: oklch(0.529 0.05 254);
   --sand: oklch(0.925 0.02 70);
   --sand-soft: oklch(0.965 0.011 70);
-  --whatsapp: oklch(0.72 0.17 150);
+  --whatsapp: var(--primary);
   --whatsapp-foreground: oklch(1 0 0);
   --shadow-soft: 0 24px 60px -30px color-mix(in oklab, var(--primary) 35%, transparent);
 }
@@ -76,7 +76,7 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3 { color: var(--color-primary); letter-spacing: -0.02em; }
+  h1, h2, h3 { color: var(--color-primary); letter-spacing: 0; }
 }
 
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
@@ -103,3 +103,8 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .animate-wa, .animate-fade-up { animation: none; }
 }
+
+.portrait-reserved { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--sand-soft); border: 1px solid var(--border); }
+.portrait-monogram { font-size: 7rem; font-weight: 500; color: var(--secondary); }
+.portrait-caption { text-align: center; margin-top: 2rem; font-weight: 600; color: var(--primary); }
+.portrait-caption small { font-weight: 400; }

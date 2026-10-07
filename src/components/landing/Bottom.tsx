@@ -112,6 +112,7 @@ export function Location() {
     <section id="contato" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal><SectionHeading eyebrow="Localização" title="Onde você será atendido" /></Reveal>
+        {!SITE.whatsappNumber && <p className="mt-5 text-sm text-muted-foreground" role="status">Agendamento pelo WhatsApp disponível em breve.</p>}
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           <Reveal className="overflow-hidden rounded-3xl bg-card">
             <iframe title="Mapa do consultório" src={SITE.mapsEmbed} loading="lazy" className="h-64 w-full border-0 sm:h-80" referrerPolicy="no-referrer-when-downgrade" />
