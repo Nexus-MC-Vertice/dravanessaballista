@@ -70,10 +70,11 @@ export function TestimonialsCarousel() {
         </div>
         <div className="mt-12 overflow-hidden"
           onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
-          onTouchStart={(e) => { setPaused(true); touchX.current = e.touches[0].clientX; }}
+          onTouchStart={(e) => { setPaused(true); touchX.current = e.touches[0]?.clientX ?? null; }}
           onTouchEnd={(e) => {
-            if (touchX.current === null) return;
-            const dx = e.changedTouches[0].clientX - touchX.current;
+            const touch = e.changedTouches[0];
+            if (touchX.current === null || !touch) return;
+            const dx = touch.clientX - touchX.current;
             if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
             touchX.current = null;
           }}>
