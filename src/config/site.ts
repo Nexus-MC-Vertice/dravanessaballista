@@ -5,7 +5,7 @@ export const SITE = {
   crm: "CRM/SP 214.721",
   whatsappNumber: "5518996452218",
   whatsappMessage: "Olá! Vim através do site e gostaria de saber mais sobre o acompanhamento com a Dra. Vanessa.",
-  instagram: "", // adicionar quando fornecido
+  instagram: "https://www.instagram.com/dravanessaballista/",
   address: {
     street: "Rua Sete de Setembro, 2038",
     district: "Vila do Estádio",

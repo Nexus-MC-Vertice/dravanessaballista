@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, MapPin, Monitor, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, MapPin, Monitor, Star } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
@@ -201,8 +201,8 @@ export function Footer() {
         </nav>
         <div className="flex flex-col items-start gap-3 text-sm">
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><WhatsAppIcon className="size-5" /> WhatsApp</a>
-          {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary">Instagram</a>}
           <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><MapPin className="size-5" /> Localização</a>
+          {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Dra. Vanessa Ballista: @dravanessaballista (abre em nova aba)" className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"><Instagram className="size-5 shrink-0" aria-hidden="true" /> @dravanessaballista</a>}
         </div>
       </div>
       <div className="border-t border-border px-5 py-6 text-center text-xs leading-relaxed text-muted-foreground">
