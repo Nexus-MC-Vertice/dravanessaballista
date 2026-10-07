@@ -3,8 +3,7 @@ export const SITE = {
   name: "Dra. Vanessa Ballista",
   specialty: "Psiquiatria",
   crm: "CRM/SP 214.721",
-  // TODO: inserir número real no formato DDI+DDD+número, ex: "5518999999999"
-  whatsappNumber: "",
+  whatsappNumber: "5518996452218",
   whatsappMessage: "Olá, Dra. Vanessa! Gostaria de informações sobre uma consulta de Psiquiatria.",
   instagram: "", // adicionar quando fornecido
   address: {
@@ -19,7 +18,7 @@ export const SITE = {
     "https://www.google.com/maps?q=Rua+Sete+de+Setembro+2038,+Presidente+Prudente+-+SP&output=embed",
 };
 
-export const whatsappLink = () =>
-  SITE.whatsappNumber
-    ? `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`
+export const whatsappLink = (number: string = SITE.whatsappNumber) =>
+  number
+    ? `https://wa.me/${number}?text=${encodeURIComponent(SITE.whatsappMessage)}`
     : "#contato";
