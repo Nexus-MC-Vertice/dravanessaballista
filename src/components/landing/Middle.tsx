@@ -2,7 +2,8 @@ import { Clock, Ear, MessageCircle, UserRound } from "lucide-react";
 import { SITE } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading } from "./ui";
 
-import officePhoto from "@/assets/consultorio.jpg";
+import officePhoto from "@/assets/consultorio-real.jpeg.asset.json";
+import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
 
 const PILLARS = [
   ["C", "Compreender", "Antes de pensar em condutas, compreender a história, o momento atual, os sintomas e o contexto de vida."],
@@ -71,10 +72,8 @@ export function AboutDoctor() {
     <section id="sobre" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <Reveal>
-          <div className="portrait-reserved aspect-[4/5] w-full rounded-[2rem] shadow-soft" aria-label="Espaço reservado para fotografia da Dra. Vanessa">
-            <span className="portrait-monogram" aria-hidden="true">VB</span>
-            <span className="portrait-caption">Dra. Vanessa Ballista<br /><small>Psiquiatria · CRM/SP 214.721</small></span>
-          </div>
+          <img src={doctorPhoto.url} alt="Dra. Vanessa Ballista" width={1280} height={1920} loading="lazy"
+            className="aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-soft" />
         </Reveal>
         <Reveal>
           <p className="eyebrow mb-4">Sobre</p>
@@ -101,10 +100,9 @@ export function AboutDoctor() {
 export function OfficePhoto() {
   return (
     <section className="py-16 sm:py-24" aria-label="Consultório">
-      <Reveal className="mx-auto max-w-7xl px-3 sm:px-5">
-        <img src={officePhoto} alt="Imagem ilustrativa de ambiente de consulta; fotografia real pendente" width={1920} height={896} loading="lazy"
-          className="aspect-[4/3] w-full rounded-[2rem] object-cover sm:aspect-[21/9]" />
-        <p className="mt-3 text-center text-xs text-muted-foreground">Imagem ilustrativa · fotografia do consultório a ser fornecida</p>
+      <Reveal className="mx-auto max-w-2xl px-3 sm:px-5">
+        <img src={officePhoto.url} alt="Consultório da Dra. Vanessa Ballista em Presidente Prudente" width={900} height={1600} loading="lazy"
+          className="h-auto w-full rounded-[2rem]" />
         <p className="mx-auto mt-6 max-w-xl px-4 text-center text-base italic text-muted-foreground">
           “Um espaço pensado para proporcionar privacidade, tranquilidade e acolhimento.”
         </p>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, MapPin, Monitor } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
+import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
 
 
 export const NAV = [
@@ -81,10 +82,8 @@ export function Hero() {
         </div>
         <div className="relative mx-auto w-full max-w-sm animate-fade-up lg:max-w-none" style={{ animationDelay: ".15s" }}>
           <div className="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-secondary/30" aria-hidden />
-          <div className="portrait-reserved relative aspect-[4/5] w-full rounded-[2rem] shadow-soft" aria-label="Espaço reservado para fotografia da Dra. Vanessa">
-            <span className="portrait-monogram" aria-hidden="true">VB</span>
-            <span className="portrait-caption">Dra. Vanessa Ballista<br /><small>Psiquiatria · CRM/SP 214.721</small></span>
-          </div>
+          <img src={doctorPhoto.url} alt="Dra. Vanessa Ballista" width={1280} height={1920} fetchPriority="high"
+            className="relative aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-soft" />
         </div>
       </div>
     </section>
