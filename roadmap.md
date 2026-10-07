@@ -7,3 +7,4 @@
 - [x] Standardize every WhatsApp contact with the supplied exact message and wa.me URL; verify desktop and mobile.
 - [x] Add the official Instagram profile to the footer as a secondary contact; verify its link and accessibility.
 - [x] Audit all WhatsApp destinations and new-tab behavior without integrations or visual changes; verified nine direct anchors, exact message, successful new-tab navigation and provider-owned redirect (no prohibited URL in project).
+- [ ] Investigate WhatsApp click handlers and preview interception; compare a temporary pure HTML anchor without changing URL or design.
