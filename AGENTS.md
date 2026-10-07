@@ -13,3 +13,4 @@
 - Keep contact details in src/config/site.ts and shared section controls in src/components/landing/ui.tsx so all appointment links use the same verified destination.
 - Unconfigured contact numbers must not produce WhatsApp links; reserve physician photography until real photos are supplied to avoid false medical identity.
 - Store uploaded landing photographs as CDN asset pointers and share the portrait across its existing placements to keep the supplied originals intact without repository binaries.
+- Share the official logo through the existing landing Logo control using a CDN pointer, with a padded local favicon derivative, so branding stays consistent without altering the original asset.
