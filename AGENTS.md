@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Landing architecture
+- Keep contact details in src/config/site.ts and shared section controls in src/components/landing/ui.tsx so all appointment links use the same verified destination.
+- Unconfigured contact numbers must not produce WhatsApp links; reserve physician photography until real photos are supplied to avoid false medical identity.

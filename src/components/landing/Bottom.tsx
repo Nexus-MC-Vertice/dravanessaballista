@@ -70,10 +70,11 @@ export function TestimonialsCarousel() {
         </div>
         <div className="mt-12 overflow-hidden"
           onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
-          onTouchStart={(e) => { setPaused(true); touchX.current = e.touches[0].clientX; }}
+          onTouchStart={(e) => { setPaused(true); touchX.current = e.touches[0]?.clientX ?? null; }}
           onTouchEnd={(e) => {
-            if (touchX.current === null) return;
-            const dx = e.changedTouches[0].clientX - touchX.current;
+            const touch = e.changedTouches[0];
+            if (touchX.current === null || !touch) return;
+            const dx = touch.clientX - touchX.current;
             if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
             touchX.current = null;
           }}>
@@ -111,6 +112,7 @@ export function Location() {
     <section id="contato" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal><SectionHeading eyebrow="Localização" title="Onde você será atendido" /></Reveal>
+        {!SITE.whatsappNumber && <p className="mt-5 text-sm text-muted-foreground" role="status">Agendamento pelo WhatsApp disponível em breve.</p>}
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           <Reveal className="overflow-hidden rounded-3xl bg-card">
             <iframe title="Mapa do consultório" src={SITE.mapsEmbed} loading="lazy" className="h-64 w-full border-0 sm:h-80" referrerPolicy="no-referrer-when-downgrade" />
