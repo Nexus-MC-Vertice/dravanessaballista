@@ -36,7 +36,7 @@ export function TestimonialsCarousel() {
   const [autoPlay, setAutoPlay] = useState(false);
   useEffect(() => { setAutoPlay(!window.matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
   const touchX = useRef<number | null>(null);
-  const max = TESTIMONIALS.length - perView;
+  const max = Math.ceil(TESTIMONIALS.length / perView) - 1;
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -83,9 +83,9 @@ export function TestimonialsCarousel() {
             if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
             touchX.current = null;
           }}>
-          <div className="review-track flex transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" style={{ transform: `translateX(-${(index * 100) / perView}%)` }}>
+          <div className="review-track flex transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" style={{ transform: `translateX(-${index * 100}%)` }}>
             {TESTIMONIALS.map(([name, text], slide) => (
-              <div key={name} aria-hidden={slide < index || slide >= index + perView} className="shrink-0 px-2.5" style={{ width: `${100 / perView}%` }}>
+              <div key={name} aria-hidden={slide < index * perView || slide >= (index + 1) * perView} className="shrink-0 px-2.5" style={{ width: `${100 / perView}%` }}>
                 <figure className="flex h-full flex-col rounded-3xl border border-border bg-card p-7">
                   <div className="flex items-center justify-between">
                     <div className="flex gap-0.5 text-review-star" aria-label="5 estrelas">
