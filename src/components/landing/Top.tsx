@@ -21,7 +21,7 @@ export function Logo({ placement = "navbar" }: { placement?: "navbar" | "footer"
   return (
     <a href="#inicio" aria-label="Dra. Vanessa Ballista — início" className="inline-flex shrink-0 items-center">
       <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1063} height={591}
-        className={placement === "footer" ? "h-24 w-auto max-w-full object-contain" : "h-[50px] w-auto object-contain sm:h-[55px]"} />
+        className={placement === "footer" ? "h-28 w-auto max-w-full object-contain" : "h-[60px] w-auto object-contain sm:h-[66px]"} />
     </a>
   );
 }
@@ -30,7 +30,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5">
+      <div className="mx-auto flex h-[84px] max-w-6xl items-center justify-between px-5">
         <Logo />
         <nav className="hidden items-center gap-5 lg:flex" aria-label="Principal">
           {NAV.slice(1, 6).map((n) => (
@@ -63,11 +63,12 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-10 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-28 lg:pt-24">
         <div className="animate-fade-up">
           <p className="eyebrow mb-5">Psiquiatria · Presidente Prudente e online</p>
+          <p className="mb-4 text-lg font-semibold text-primary">{SITE.name}</p>
           <h1 className="text-[2.1rem] font-semibold leading-[1.12] sm:text-5xl lg:text-[3.4rem]">
-            Cuidar da sua saúde mental também é cuidar da sua vida por inteiro.
+            Quando cuidar de você passa a ser uma necessidade, não adie esse cuidado.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Um atendimento psiquiátrico individualizado, com escuta qualificada, olhar integral e acompanhamento próximo para compreender o que você está vivendo e construir, junto com você, o melhor caminho de cuidado.
+            Atendimento psiquiátrico particular em Presidente Prudente e online, com escuta individualizada, visão integrativa do cuidado e acompanhamento próximo.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CtaButton><WhatsAppIcon className="size-5" /> Agendar uma consulta</CtaButton>
@@ -78,8 +79,8 @@ export function Hero() {
             <li className="flex items-center gap-1.5"><Monitor className="size-4" /> Atendimento online</li>
             <li>Consultas particulares</li>
           </ul>
-          <p className="mt-8 border-t border-border pt-5 text-xs tracking-wide text-muted-foreground">
-            {SITE.name} | {SITE.specialty} | {SITE.crm}
+          <p className="mt-8 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
+            {SITE.qualification} | {SITE.crm}
           </p>
         </div>
         <div className="relative mx-auto w-full max-w-sm animate-fade-up lg:max-w-none" style={{ animationDelay: ".15s" }}>
@@ -98,10 +99,13 @@ export function Identification() {
       <Reveal className="mx-auto max-w-3xl px-5 text-center">
         <h2 className="text-[1.75rem] font-semibold leading-tight sm:text-4xl">Quando algo dentro de você começa a pedir atenção.</h2>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Ansiedade, tristeza, esgotamento, alterações no sono, perda de energia ou mudanças importantes na vida podem afetar muito mais do que o estado emocional. Podem interferir no trabalho, nos relacionamentos, na rotina e na forma como você se sente no dia a dia.
+          Nem sempre é fácil perceber quando mudanças no humor, no sono, na energia ou na forma de viver começam a ultrapassar aquilo que você consegue administrar sozinho.
         </p>
+        <ul className="mt-8 grid gap-x-8 gap-y-3 text-left text-base leading-relaxed text-muted-foreground sm:grid-cols-2">
+          {["Ansiedade persistente", "Alterações importantes do sono", "Tristeza ou desânimo prolongados", "Mudanças persistentes de humor", "Cansaço ou falta de energia", "Dificuldade de concentração", "Esgotamento emocional", "Mudanças que interferem na rotina, nos relacionamentos ou na qualidade de vida"].map((s) => <li key={s} className="border-l-2 border-secondary/40 pl-4">{s}</li>)}
+        </ul>
         <p className="mt-6 text-base font-medium leading-relaxed text-primary sm:text-lg">
-          Nem sempre é fácil entender sozinho o que está acontecendo. Uma avaliação psiquiátrica pode ser o primeiro passo para compreender melhor esse momento.
+          Uma avaliação pode ajudar a compreender melhor o que está acontecendo e definir os próximos passos do cuidado.
         </p>
         <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 border-b border-primary/40 pb-1 font-semibold text-primary transition-colors hover:border-primary">
           Falar com a Dra. Vanessa →
@@ -123,7 +127,7 @@ export function TreatmentCards() {
     <section id="areas" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
-          <SectionHeading eyebrow="Áreas de cuidado" title="Cuidado psiquiátrico para diferentes momentos da vida"
+          <SectionHeading eyebrow="Áreas de tratamento" title="Algumas situações em que uma avaliação psiquiátrica pode ajudar"
             text="Cada pessoa chega ao consultório com uma história diferente. A avaliação considera os sintomas, o contexto e as particularidades de cada paciente para definir a melhor estratégia de cuidado." />
         </Reveal>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

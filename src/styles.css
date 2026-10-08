@@ -35,6 +35,11 @@
   --color-sand-soft: var(--sand-soft);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-review-star: var(--review-star);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-red: var(--google-red);
+  --color-google-green: var(--google-green);
+  --color-google-blue: var(--google-blue);
 }
 
 :root {
@@ -63,6 +68,11 @@
   --sand-soft: oklch(0.965 0.011 70);
   --whatsapp: var(--primary);
   --whatsapp-foreground: oklch(1 0 0);
+  --review-star: oklch(0.72 0.15 80);
+  --google-yellow: oklch(0.844 0.172 85);
+  --google-red: oklch(0.66 0.23 33);
+  --google-green: oklch(0.674 0.162 144);
+  --google-blue: oklch(0.558 0.173 253);
   --shadow-soft: 0 24px 60px -30px color-mix(in oklab, var(--primary) 35%, transparent);
 }
 
@@ -77,6 +87,7 @@
     overflow-x: hidden;
   }
   h1, h2, h3 { color: var(--color-primary); letter-spacing: 0; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 }
 
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
@@ -102,6 +113,8 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .animate-wa, .animate-fade-up { animation: none; }
+  html { scroll-behavior: auto; }
+  .review-track { transition: none; }
 }
 
 .portrait-reserved { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--sand-soft); border: 1px solid var(--border); }

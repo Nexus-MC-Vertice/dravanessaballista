@@ -18,7 +18,7 @@ export function CtaButton({
     ghost: "border border-primary/25 text-primary hover:bg-primary/5",
     light: "bg-primary-foreground text-primary hover:bg-sand",
   }[variant];
-  const external = !href;
+  const external = !href || /^https:\/\//.test(href);
   return (
     <a
       href={href ?? whatsappLink()}
