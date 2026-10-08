@@ -79,7 +79,7 @@ export function AboutDoctor() {
           <p className="eyebrow mb-4">Sobre</p>
           <h2 className="text-[1.75rem] font-semibold leading-tight sm:text-4xl">Conheça a Dra. Vanessa Ballista</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-            <p>Sou Dra. Vanessa Ballista, médica com pós-graduação em Psiquiatria.</p>
+            <p>Sou Dra. Vanessa Ballista, médica com especialização em Psiquiatria.</p>
             <p>Cada pessoa chega ao consultório com uma história, um contexto e uma forma própria de viver aquilo que está sentindo.</p>
             <p>Por isso, minha abordagem busca compreender não apenas os sintomas, mas também o momento de vida, a rotina, o histórico e os fatores que podem estar relacionados ao que você está vivendo.</p>
             <p>Com uma visão integrativa e individualizada, a Dra. Vanessa conduz cada consulta com atenção, clareza e responsabilidade, buscando transformar aquilo que muitas vezes parece confuso em uma compreensão mais clara sobre o que está acontecendo e quais caminhos podem fazer sentido a partir dali.</p>
