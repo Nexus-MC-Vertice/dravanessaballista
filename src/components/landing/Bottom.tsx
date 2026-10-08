@@ -195,7 +195,7 @@ export function FAQ() {
           {FAQS.map(([q, a], i) => (
             <AccordionItem key={q} value={`f${i}`} className="border-border">
               <AccordionTrigger className="py-5 text-left text-base font-semibold text-primary hover:no-underline">{q}</AccordionTrigger>
-              <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground"><div className="space-y-4">{a.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></AccordionContent>
+              <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground"><div className="space-y-4">{(a ?? "").split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
