@@ -2,16 +2,16 @@ import { Clock, Ear, MessageCircle, UserRound } from "lucide-react";
 import { SITE } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading } from "./ui";
 
-import officePhoto from "@/assets/consultorio-real.jpeg.asset.json";
+import officePhoto from "@/assets/consultorio-horizontal.jpg.asset.json";
 import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
 
 const PILLARS = [
-  ["C", "Compreender", "Antes de pensar em condutas, compreender a história, o momento atual, os sintomas e o contexto de vida."],
-  ["U", "Unificar", "Olhar para saúde mental e saúde física de maneira integrada, considerando, quando clinicamente pertinente, sono, hábitos, condições metabólicas, exames laboratoriais e aspectos hormonais."],
-  ["I", "Individualizar", "Nenhuma pessoa é igual à outra. A estratégia de cuidado é construída considerando necessidades, características e realidade individual."],
-  ["D", "Decidir junto", "O paciente participa das decisões. As possibilidades de tratamento são discutidas com clareza, respeitando suas necessidades e preferências."],
-  ["A", "Acompanhar", "O cuidado continua entre as consultas. A Dra. Vanessa oferece acompanhamento por mensagem para dúvidas que possam surgir durante o tratamento, dentro dos limites definidos para cada paciente."],
-  ["R", "Reavaliar", "A evolução é acompanhada ao longo do tempo e a estratégia pode ser revista sempre que necessário."],
+  ["C", "Compreender", "Ouvir sua história, entender o que você está vivendo e identificar o que merece atenção."],
+  ["U", "Unificar", "Conectar sua história, seus sintomas e o contexto em que tudo isso acontece para enxergar o quadro de forma mais ampla."],
+  ["I", "Individualizar", "Considerar suas características, necessidades e momento de vida para construir uma abordagem adequada à sua realidade."],
+  ["D", "Direcionar", "A partir da avaliação, definir com clareza os próximos passos do acompanhamento, com orientação médica responsável e adequada ao seu caso."],
+  ["A", "Acompanhar", "Estar presente ao longo do processo, observando sua evolução e os efeitos das escolhas feitas."],
+  ["R", "Reavaliar", "Revisar a estratégia sempre que necessário, de acordo com sua evolução."],
 ];
 
 export function MethodCuidar() {
@@ -20,16 +20,16 @@ export function MethodCuidar() {
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="max-w-2xl">
           <p className="eyebrow mb-4 !text-primary-foreground/70">Método CUIDAR</p>
-          <h2 className="text-[1.75rem] font-semibold leading-tight !text-primary-foreground sm:text-4xl">Um jeito diferente de cuidar da saúde mental</h2>
+          <h2 className="text-[1.75rem] font-semibold leading-tight !text-primary-foreground sm:text-4xl">Uma forma de cuidar que começa por compreender você.</h2>
           <p className="mt-5 text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
-            O Método CUIDAR traduz a forma como a Dra. Vanessa conduz o acompanhamento: com proximidade, individualização e participação ativa do paciente nas decisões.
+            Um olhar individualizado para compreender o que você vive e definir os próximos passos.
           </p>
         </Reveal>
         <div className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-primary-foreground/15 sm:grid-cols-2 lg:grid-cols-3">
           {PILLARS.map(([l, t, d]) => (
             <Reveal key={l} className="bg-primary p-7 sm:p-9">
               <div className="flex items-baseline gap-4">
-                <span className="text-5xl font-bold text-primary-foreground/25">{l}</span>
+                <span className="text-5xl font-bold text-primary-foreground/75">{l}</span>
                 <h3 className="text-lg font-semibold !text-primary-foreground">{t}</h3>
               </div>
               <p className="mt-4 text-[0.95rem] leading-relaxed text-primary-foreground/75">{d}</p>
@@ -37,10 +37,10 @@ export function MethodCuidar() {
           ))}
         </div>
         <Reveal className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/15 pt-10 md:flex-row md:items-center">
-          <p className="text-xl font-medium italic text-primary-foreground sm:text-2xl">“Melhores escolhas constroem melhores resultados.”</p>
+          <p className="text-xl font-medium italic text-primary-foreground sm:text-2xl">Revisar o caminho sempre que necessário, respeitando sua evolução.</p>
           <CtaButton variant="light">Quero conhecer esse jeito de cuidar</CtaButton>
         </Reveal>
-        <p className="mt-8 text-xs text-primary-foreground/55">O Método CUIDAR representa a abordagem própria de cuidado da Dra. Vanessa e não constitui protocolo científico.</p>
+        <p className="mt-8 text-sm leading-relaxed text-primary-foreground/80">O Método CUIDAR representa a abordagem própria de cuidado da Dra. Vanessa e não constitui protocolo científico.</p>
       </div>
     </section>
   );
@@ -53,8 +53,8 @@ export function IntegralView() {
     <section className="py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
         <Reveal>
-          <SectionHeading eyebrow="Visão integral" title="Olhar para a pessoa, não apenas para o sintoma."
-            text="A saúde mental está inserida em uma vida real — com sono, rotina, trabalho, relacionamentos, hábitos e condições físicas. Por isso, quando fizer sentido clinicamente, esses aspectos também podem fazer parte da avaliação." />
+          <SectionHeading eyebrow="Visão integrativa" title="Olhar para a pessoa, não apenas para o sintoma."
+            text="A saúde mental está inserida em uma vida real, com sono, rotina, trabalho, relacionamentos, hábitos e condições físicas. Por isso, quando fizer sentido clinicamente, esses aspectos também podem fazer parte da avaliação e do tratamento, respectivamente." />
         </Reveal>
         <Reveal className="flex flex-wrap gap-3">
           {ASPECTS.map((a) => (
@@ -79,14 +79,15 @@ export function AboutDoctor() {
           <p className="eyebrow mb-4">Sobre</p>
           <h2 className="text-[1.75rem] font-semibold leading-tight sm:text-4xl">Conheça a Dra. Vanessa Ballista</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-            <p>Sou Dra. Vanessa Ballista, médica com especialização em Psiquiatria.</p>
-            <p>Realizo atendimento em saúde mental com foco em escuta qualificada, cuidado individualizado e acompanhamento próximo.</p>
-            <p>Atendo jovens, adultos e idosos em consultas presenciais em Presidente Prudente e também de forma online.</p>
-            <p>Acredito que melhores escolhas constroem melhores resultados. Por isso, o tratamento é construído de forma compartilhada, respeitando a história de vida, o estilo de viver e as individualidades de cada pessoa.</p>
-            <p>Meu propósito é oferecer um espaço em que o paciente possa ser ouvido com atenção, compreendido em sua individualidade e acompanhado ao longo do processo de cuidado.</p>
+            <p>Sou Dra. Vanessa Ballista, médica com pós-graduação em Psiquiatria.</p>
+            <p>Cada pessoa chega ao consultório com uma história, um contexto e uma forma própria de viver aquilo que está sentindo.</p>
+            <p>Por isso, minha abordagem busca compreender não apenas os sintomas, mas também o momento de vida, a rotina, o histórico e os fatores que podem estar relacionados ao que você está vivendo.</p>
+            <p>Com uma visão integrativa e individualizada, a Dra. Vanessa conduz cada consulta com atenção, clareza e responsabilidade, buscando transformar aquilo que muitas vezes parece confuso em uma compreensão mais clara sobre o que está acontecendo e quais caminhos podem fazer sentido a partir dali.</p>
+            <p>Mais do que encontrar respostas prontas, o objetivo é construir um acompanhamento próximo, criterioso e coerente com as necessidades de cada pessoa.</p>
+            <p className="font-medium text-primary">Porque antes de definir um caminho, é preciso entender quem está diante de você.</p>
           </div>
           <div className="mt-8 grid grid-cols-2 gap-3">
-            {["Escuta qualificada", "Cuidado individualizado", "Acompanhamento próximo", "Visão integral"].map((h) => (
+            {["Escuta qualificada", "Cuidado individualizado", "Acompanhamento próximo", "Visão integrativa"].map((h) => (
               <div key={h} className="rounded-2xl bg-background px-4 py-4 text-sm font-semibold text-primary">{h}</div>
             ))}
           </div>
@@ -100,9 +101,9 @@ export function AboutDoctor() {
 export function OfficePhoto() {
   return (
     <section className="py-16 sm:py-24" aria-label="Consultório">
-      <Reveal className="mx-auto max-w-2xl px-3 sm:px-5">
-        <img src={officePhoto.url} alt="Consultório da Dra. Vanessa Ballista em Presidente Prudente" width={900} height={1600} loading="lazy"
-          className="h-auto w-full rounded-[2rem]" />
+      <Reveal className="mx-auto max-w-6xl px-5">
+        <img src={officePhoto.url} alt="Ambiente real do consultório da Dra. Vanessa Ballista em Presidente Prudente, SP" width={1376} height={768} loading="lazy" decoding="async"
+          className="aspect-video w-full rounded-[2rem] object-cover" />
         <p className="mx-auto mt-6 max-w-xl px-4 text-center text-base italic text-muted-foreground">
           “Um espaço pensado para proporcionar privacidade, tranquilidade e acolhimento.”
         </p>
@@ -164,7 +165,7 @@ export function PrivateCare() {
             <Reveal key={t} className="rounded-3xl bg-card p-6">
               <Icon className="size-6 text-secondary" strokeWidth={1.6} />
               <h3 className="mt-4 font-semibold leading-snug">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">{d}</p>
             </Reveal>
           ))}
         </div>

@@ -2,6 +2,9 @@
 export const SITE = {
   name: "Dra. Vanessa Ballista",
   specialty: "Psiquiatria",
+  qualification: "Médica com pós-graduação em Psiquiatria",
+  paymentMethods: ["Pix", "Cartão de crédito"],
+  consultationType: "Particular",
   crm: "CRM/SP 214.721",
   whatsappNumber: "5518996452218",
   whatsappMessage: "Olá! Vim através do site e gostaria de saber mais sobre o acompanhamento com a Dra. Vanessa.",

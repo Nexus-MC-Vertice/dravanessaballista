@@ -2,15 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar, Hero, Identification, TreatmentCards } from "@/components/landing/Top";
 import { MethodCuidar, IntegralView, AboutDoctor, OfficePhoto, CareJourney, PrivateCare } from "@/components/landing/Middle";
 import { TestimonialsCarousel, Location, FAQ, FinalCta, Footer, FloatingWhatsApp } from "@/components/landing/Bottom";
+import { SITE } from "@/config/site";
 
-const TITLE = "Psiquiatra em Presidente Prudente | Dra. Vanessa Ballista";
-const DESC = "Dra. Vanessa Ballista, psiquiatra (CRM/SP 214.721). Atendimento psiquiátrico individualizado presencial em Presidente Prudente e online para jovens, adultos e idosos.";
+const TITLE = "Psiquiatria em Presidente Prudente e online | Dra. Vanessa Ballista";
+const DESC = "Dra. Vanessa Ballista, médica com pós-graduação em Psiquiatria, CRM/SP 214.721. Consultas particulares em Presidente Prudente, SP, e online, com cuidado individualizado.";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Physician",
   name: "Dra. Vanessa Ballista",
-  medicalSpecialty: "Psychiatric",
+  description: `${SITE.qualification}. Atendimento particular em Psiquiatria, presencial em Presidente Prudente e online.`,
+  url: "https://dravanessaballista.lovable.app/",
+  telephone: `+${SITE.whatsappNumber}`,
+  sameAs: [SITE.instagram],
+  availableService: { "@type": "MedicalTherapy", name: "Avaliação e acompanhamento em Psiquiatria" },
   address: {
     "@type": "PostalAddress",
     streetAddress: "Rua Sete de Setembro, 2038 - Vila do Estádio",
@@ -31,7 +36,9 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://dravanessaballista.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://dravanessaballista.lovable.app/" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
   }),
   component: Index,

@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { SITE, whatsappLink } from '../config/site';
 describe('Appointment contact configuration', () => {
+  it('identifies the confirmed postgraduate qualification', () => {
+    expect(SITE.qualification).toBe('Médica com pós-graduação em Psiquiatria');
+  });
+  it('offers only private consultations', () => {
+    expect(SITE.consultationType).toBe('Particular');
+  });
+  it('accepts the confirmed payment methods', () => {
+    expect(SITE.paymentMethods).toEqual(['Pix', 'Cartão de crédito']);
+  });
   it('uses the official Instagram profile', () => {
     expect(SITE.instagram).toBe('https://www.instagram.com/dravanessaballista/');
   });

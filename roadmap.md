@@ -1,4 +1,8 @@
 # Landing page
+- [ ] Apply final supplied copy and confirmed postgraduate identification, preserving approved structure/palette and verbatim reviews.
+- [ ] Use new horizontal office photo; refine logo sizes, readability, accessibility and contact hierarchy.
+- [ ] Add privacy/terms pages and refine local metadata/structured data using confirmed facts only.
+- [ ] Verify desktop/mobile, FAQ, external links and relevant business tests; report remaining Preview diagnostic limitation.
 - [x] Implement the requested sections and supplied visual identity.
 - [x] Correct preview errors and verify navigation, FAQ and carousel.
 - [x] Configure official WhatsApp number — (18) 99645-2218.
