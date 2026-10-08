@@ -116,7 +116,7 @@ export function Location() {
   return (
     <section id="contato" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal><SectionHeading eyebrow="Localização" title="Atendimento presencial em Presidente Prudente, SP" text="Consultas particulares no consultório em Presidente Prudente e atendimento online, inclusive para quem está em Santo Anastácio, São Paulo, conforme a adequação clínica da modalidade." /></Reveal>
+        <Reveal><SectionHeading eyebrow="Localização" title="Atendimento presencial em Presidente Prudente e Santo Anastácio, SP" text="Consultas particulares presenciais em Presidente Prudente e Santo Anastácio, São Paulo, além de atendimento online conforme a adequação clínica da modalidade." /></Reveal>
         {!SITE.whatsappNumber && <p className="mt-5 text-sm text-muted-foreground" role="status">Agendamento pelo WhatsApp disponível em breve.</p>}
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           <Reveal className="overflow-hidden rounded-3xl bg-card">

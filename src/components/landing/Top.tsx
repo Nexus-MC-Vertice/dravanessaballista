@@ -75,7 +75,7 @@ export function Hero() {
             <CtaButton variant="ghost" href="#sobre">Conhecer a Dra. Vanessa</CtaButton>
           </div>
           <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-secondary">
-            <li className="flex items-center gap-1.5"><MapPin className="size-4" /> Presencial em Presidente Prudente</li>
+            <li className="flex items-center gap-1.5"><MapPin className="size-4" /> Presencial em Presidente Prudente e Santo Anastácio</li>
             <li className="flex items-center gap-1.5"><Monitor className="size-4" /> Atendimento online</li>
             <li>Consultas particulares</li>
           </ul>
