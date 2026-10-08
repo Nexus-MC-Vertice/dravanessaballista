@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { SITE, whatsappLink } from '../config/site';
 describe('Appointment contact configuration', () => {
   it('identifies the confirmed postgraduate qualification', () => {
-    expect(SITE.qualification).toBe('Médica com pós-graduação em Psiquiatria');
+    expect(SITE.qualification).toBe('Médica com especialização em Psiquiatria');
   });
   it('offers only private consultations', () => {
     expect(SITE.consultationType).toBe('Particular');

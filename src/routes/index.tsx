@@ -5,7 +5,7 @@ import { TestimonialsCarousel, Location, FAQ, FinalCta, Footer, FloatingWhatsApp
 import { SITE } from "@/config/site";
 
 const TITLE = "Psiquiatria em Presidente Prudente e online | Dra. Vanessa Ballista";
-const DESC = "Dra. Vanessa Ballista, médica com pós-graduação em Psiquiatria, CRM/SP 214.721. Consultas particulares em Presidente Prudente, SP, e online, com cuidado individualizado.";
+const DESC = "Dra. Vanessa Ballista, médica com especialização em Psiquiatria, CRM/SP 214.721. Consultas particulares em Presidente Prudente, SP, e online, com cuidado individualizado.";
 
 const jsonLd = {
   "@context": "https://schema.org",

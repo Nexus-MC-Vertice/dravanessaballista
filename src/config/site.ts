@@ -2,7 +2,7 @@
 export const SITE = {
   name: "Dra. Vanessa Ballista",
   specialty: "Psiquiatria",
-  qualification: "Médica com pós-graduação em Psiquiatria",
+  qualification: "Médica com especialização em Psiquiatria",
   paymentMethods: ["Pix", "Cartão de crédito"],
   consultationType: "Particular",
   crm: "CRM/SP 214.721",
