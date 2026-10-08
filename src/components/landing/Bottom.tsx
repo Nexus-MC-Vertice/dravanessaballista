@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Instagram, MapPin, Monitor, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, MapPin, Monitor, Star, Pause, Play } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
 import { Logo, NAV } from "./Top";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 
 const TESTIMONIALS = [
   ["Laira Silva Gomes", "Não tenho palavras para descrever a Dra Vanessa foi incrível, médica super humana, profissional excelente, sabe muito bem conduzir a consulta e sempre me sinto muito acolhida"],
@@ -19,10 +21,10 @@ const TESTIMONIALS = [
 function GoogleG() {
   return (
     <svg viewBox="0 0 48 48" className="size-5" aria-label="Google">
-      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
-      <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
-      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
-      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+      <path className="fill-google-yellow" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+      <path className="fill-google-red" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+      <path className="fill-google-green" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+      <path className="fill-google-blue" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/>
     </svg>
   );
 }
@@ -31,6 +33,8 @@ export function TestimonialsCarousel() {
   const [perView, setPerView] = useState(1);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [autoPlay, setAutoPlay] = useState(false);
+  useEffect(() => { setAutoPlay(!window.matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
   const touchX = useRef<number | null>(null);
   const max = TESTIMONIALS.length - perView;
 
@@ -46,29 +50,30 @@ export function TestimonialsCarousel() {
 
   const go = useCallback((d: number) => setIndex((i) => (i + d > max ? 0 : i + d < 0 ? max : i + d)), [max]);
   useEffect(() => {
-    if (paused) return;
+    if (paused || !autoPlay) return;
     const t = setInterval(() => go(1), 6000);
     return () => clearInterval(t);
-  }, [paused, go]);
+  }, [paused, autoPlay, go]);
 
   return (
     <section id="depoimentos" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <Reveal><SectionHeading eyebrow="Depoimentos" title="O que os pacientes dizem" text="Relatos sobre acolhimento, escuta e experiência de cuidado." /></Reveal>
+          <Reveal><SectionHeading eyebrow="Avaliações no Google" title="O que os pacientes dizem" text="Relatos sobre acolhimento, escuta e experiência de cuidado." /></Reveal>
           <div className="flex gap-2">
+            <Button variant="ghost" size="icon" className="size-12 rounded-full border border-primary/20" onClick={() => setAutoPlay((v) => !v)} aria-label={autoPlay ? "Pausar depoimentos" : "Reproduzir depoimentos"}>{autoPlay ? <Pause className="size-5" /> : <Play className="size-5" />}</Button>
             {[[-1, ChevronLeft, "Anterior"], [1, ChevronRight, "Próximo"]].map(([d, Icon, l]) => {
               const I = Icon as typeof ChevronLeft;
               return (
-                <button key={l as string} onClick={() => { setPaused(true); go(d as number); }} aria-label={`Depoimento ${l}`}
+                <Button variant="ghost" size="icon" key={l as string} onClick={() => { setPaused(true); go(d as number); }} aria-label={`Depoimento ${l}`}
                   className="flex size-12 items-center justify-center rounded-full border border-primary/20 text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
                   <I className="size-5" />
-                </button>
+                </Button>
               );
             })}
           </div>
         </div>
-        <div className="mt-12 overflow-hidden"
+        <div className="mt-12 overflow-hidden" onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}
           onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
           onTouchStart={(e) => { setPaused(true); touchX.current = e.touches[0]?.clientX ?? null; }}
           onTouchEnd={(e) => {
@@ -78,13 +83,13 @@ export function TestimonialsCarousel() {
             if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
             touchX.current = null;
           }}>
-          <div className="flex transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" style={{ transform: `translateX(-${(index * 100) / perView}%)` }}>
-            {TESTIMONIALS.map(([name, text]) => (
-              <div key={name} className="shrink-0 px-2.5" style={{ width: `${100 / perView}%` }}>
+          <div className="review-track flex transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" style={{ transform: `translateX(-${(index * 100) / perView}%)` }}>
+            {TESTIMONIALS.map(([name, text], slide) => (
+              <div key={name} aria-hidden={slide < index || slide >= index + perView} className="shrink-0 px-2.5" style={{ width: `${100 / perView}%` }}>
                 <figure className="flex h-full flex-col rounded-3xl border border-border bg-card p-7">
                   <div className="flex items-center justify-between">
-                    <div className="flex gap-0.5 text-chart-4" aria-label="5 estrelas">
-                      {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-4 fill-current text-secondary" />)}
+                    <div className="flex gap-0.5 text-review-star" aria-label="5 estrelas">
+                      {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-5 fill-current" />)}
                     </div>
                     <GoogleG />
                   </div>
@@ -97,8 +102,8 @@ export function TestimonialsCarousel() {
         </div>
         <div className="mt-8 flex justify-center gap-2">
           {Array.from({ length: max + 1 }).map((_, i) => (
-            <button key={i} onClick={() => { setPaused(true); setIndex(i); }} aria-label={`Ir para depoimento ${i + 1}`}
-              className={cn("h-2 rounded-full transition-all duration-500", i === index ? "w-8 bg-primary" : "w-2 bg-primary/20")} />
+            <Button variant="ghost" size="icon" key={i} onClick={() => { setPaused(true); setIndex(i); }} aria-label={`Ir para depoimento ${i + 1}`}
+              aria-current={i === index ? "true" : undefined} className="size-11"><span className={cn("h-2 rounded-full transition-all duration-500", i === index ? "w-8 bg-primary" : "w-2 bg-primary/20")} /></Button>
           ))}
         </div>
       </div>
@@ -111,7 +116,7 @@ export function Location() {
   return (
     <section id="contato" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal><SectionHeading eyebrow="Localização" title="Onde você será atendido" /></Reveal>
+        <Reveal><SectionHeading eyebrow="Localização" title="Atendimento presencial em Presidente Prudente, SP" text="Consultas particulares no consultório em Presidente Prudente e atendimento online, inclusive para quem está em Santo Anastácio, São Paulo, conforme a adequação clínica da modalidade." /></Reveal>
         {!SITE.whatsappNumber && <p className="mt-5 text-sm text-muted-foreground" role="status">Agendamento pelo WhatsApp disponível em breve.</p>}
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           <Reveal className="overflow-hidden rounded-3xl bg-card">
@@ -139,18 +144,46 @@ export function Location() {
 }
 
 const FAQS = [
-  ["Por que o atendimento da Dra. Vanessa é particular?", "O modelo de atendimento foi estruturado para proporcionar uma consulta com tempo adequado para escuta, avaliação e compreensão do contexto individual do paciente. A proposta é oferecer um cuidado mais próximo e personalizado, desde a primeira consulta até o acompanhamento ao longo do tratamento."],
-  ["A Dra. Vanessa atende algum convênio?", "Não. Atualmente, os atendimentos são realizados exclusivamente de forma particular. Essa escolha está relacionada ao modelo de cuidado oferecido, que prioriza tempo adequado de consulta, escuta individualizada e acompanhamento próximo."],
-  ["O atendimento particular significa que a consulta é apenas para quem precisa de medicação?", "Não. A consulta começa pela avaliação médica. A necessidade ou não de medicamentos depende do quadro, da avaliação clínica e das particularidades de cada paciente. A conduta é individualizada e pode envolver diferentes estratégias de cuidado."],
-  ["Como é a primeira consulta?", "A primeira consulta é um momento de escuta e avaliação. Dra. Vanessa busca compreender não apenas os sintomas, mas também a história, o contexto de vida, a rotina e os impactos que aquele momento está produzindo. A partir disso, são discutidas as possibilidades de cuidado."],
-  ["O paciente participa das decisões sobre o tratamento?", "Sim. A proposta da Dra. Vanessa é construir o tratamento de forma compartilhada. As possibilidades são explicadas e discutidas para que o paciente compreenda o caminho proposto e participe das decisões relacionadas ao próprio cuidado."],
-  ["A Dra. Vanessa acompanha o paciente entre as consultas?", "Sim. O acompanhamento pode incluir contato por mensagem para dúvidas relacionadas ao tratamento, proporcionando mais proximidade e segurança durante o processo. Esse acompanhamento respeita os limites e orientações definidos para cada paciente."],
-  ["A Dra. Vanessa avalia aspectos físicos além da saúde mental?", "Quando clinicamente pertinente, sim. A avaliação pode considerar aspectos relacionados ao sono, hábitos, condições metabólicas, alterações hormonais e outros fatores de saúde que possam ser relevantes para compreender o quadro individual. Isso não significa que exames sejam necessários para todos os pacientes."],
-  ["A Dra. Vanessa atende online?", "Sim. Há possibilidade de atendimento online para pacientes elegíveis, observando as normas aplicáveis à telemedicina e a adequação dessa modalidade para cada caso."],
-  ["Quais pacientes podem ser atendidos?", "A Dra. Vanessa acompanha jovens, adultos e idosos. A indicação e a modalidade de acompanhamento são avaliadas individualmente."],
-  ["Quais são as principais áreas de atendimento?", "Entre as demandas acompanhadas estão depressão, transtornos de ansiedade, luto, burnout e esgotamento emocional, além de outras condições relacionadas à saúde mental que podem ser avaliadas durante a consulta."],
-  ["Onde fica o consultório?", "Rua Sete de Setembro, 2038, Vila do Estádio, Presidente Prudente – SP, CEP 19015-080."],
-  ["Como faço para agendar?", "Clique em qualquer botão de WhatsApp disponível na página e envie uma mensagem. A equipe poderá informar disponibilidade, valores e orientações para o agendamento."],
+  [
+    "Quando devo procurar uma avaliação psiquiátrica?",
+    "A avaliação psiquiátrica pode ser importante quando mudanças persistentes no humor, ansiedade, sono, energia, concentração ou na forma como você vem vivendo começam a interferir na sua rotina, relacionamentos ou qualidade de vida. A consulta permite compreender melhor o que está acontecendo e avaliar os caminhos de cuidado mais adequados para cada caso."
+  ],
+  [
+    "Como funciona a primeira consulta?",
+    "A primeira consulta é um momento de escuta e avaliação. A Dra. Vanessa busca compreender o que você está vivendo, seu histórico e os aspectos relevantes da sua saúde e rotina. A partir dessa avaliação, são definidos os próximos passos do cuidado de forma individualizada."
+  ],
+  [
+    "Psiquiatra sempre prescreve medicação?",
+    "Não necessariamente. A necessidade de medicação depende da avaliação de cada caso. O tratamento pode envolver diferentes estratégias, e qualquer indicação é feita de acordo com as necessidades e condições clínicas de cada paciente."
+  ],
+  [
+    "Qual a diferença entre psiquiatria e psicoterapia?",
+    "Psiquiatria e psicoterapia são formas diferentes e complementares de cuidado em saúde mental. A psiquiatria é uma área médica voltada à avaliação clínica e ao tratamento dos transtornos mentais, enquanto a psicoterapia trabalha aspectos emocionais, comportamentais e relacionais por meio de diferentes abordagens psicológicas. Em alguns casos, as duas formas de cuidado podem fazer parte do acompanhamento."
+  ],
+  [
+    "A consulta pode ser realizada online?",
+    "Sim. A Dra. Vanessa realiza atendimentos online, além das consultas presenciais em Presidente Prudente, conforme as condições aplicáveis ao atendimento médico por telemedicina."
+  ],
+  [
+    "A Dra. Vanessa atende por convênio?",
+    "Atualmente, a Dra. Vanessa realiza seus atendimentos de forma particular.\n\nEssa modalidade permite que a consulta tenha o tempo e a atenção necessários para uma avaliação psiquiátrica cuidadosa, considerando não apenas os sintomas, mas também o momento de vida, o histórico e as particularidades de cada paciente. O acompanhamento é pensado para que você tenha espaço para falar, tirar dúvidas e compreender com clareza as possibilidades de tratamento.\n\nPara quem possui convênio, também pode ser possível solicitar reembolso da consulta, de acordo com as condições e regras do seu plano.\n\nSe você está buscando um atendimento psiquiátrico individualizado, entre em contato para saber como funciona a consulta e verificar a disponibilidade de horários."
+  ],
+  [
+    "Quais são as formas de pagamento?",
+    "O atendimento particular pode ser pago por Pix ou cartão de crédito, conforme as condições informadas no momento do agendamento."
+  ],
+  [
+    "Como faço para agendar uma consulta?",
+    "Para solicitar um agendamento, basta clicar em ‘Agendar uma consulta’ e entrar em contato pelo WhatsApp. A equipe poderá orientar você sobre disponibilidade, modalidade de atendimento e demais informações."
+  ],
+  [
+    "Onde fica o consultório?",
+    "O consultório está localizado em Presidente Prudente, São Paulo. O endereço completo e a localização no mapa estão disponíveis na seção de localização da página."
+  ],
+  [
+    "Como saber se está na hora de procurar uma psiquiatra?",
+    "Você não precisa esperar que os sintomas se tornem intensos ou incapacitantes para buscar ajuda.\n\nA avaliação psiquiátrica pode ser importante quando mudanças no humor, ansiedade, sono, disposição, concentração ou comportamento começam a interferir na sua rotina, nos relacionamentos ou na qualidade de vida.\n\nA Dra. Vanessa também acompanha situações como ansiedade, depressão, esgotamento emocional, alterações persistentes de humor, dificuldades relacionadas ao sono e outras condições que podem se beneficiar de uma avaliação médica especializada.\n\nMesmo quando você não sabe exatamente o que está acontecendo, a consulta pode ser o primeiro passo para compreender o que está sentindo e identificar o caminho mais adequado para o seu tratamento."
+  ]
 ];
 
 export function FAQ() {
@@ -162,7 +195,7 @@ export function FAQ() {
           {FAQS.map(([q, a], i) => (
             <AccordionItem key={q} value={`f${i}`} className="border-border">
               <AccordionTrigger className="py-5 text-left text-base font-semibold text-primary hover:no-underline">{q}</AccordionTrigger>
-              <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground">{a}</AccordionContent>
+              <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground"><div className="space-y-4">{a.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
@@ -177,7 +210,7 @@ export function FinalCta() {
       <Reveal className="mx-auto max-w-6xl rounded-[2.5rem] bg-primary px-6 py-20 text-center text-primary-foreground sm:px-12 sm:py-24">
         <h2 className="mx-auto max-w-2xl text-[1.85rem] font-semibold leading-tight !text-primary-foreground sm:text-[2.6rem]">Talvez o primeiro passo seja simplesmente conversar.</h2>
         <p className="mx-auto mt-6 max-w-xl leading-relaxed text-primary-foreground/80 sm:text-lg">
-          Se você sente que algo mudou e gostaria de compreender melhor o que está acontecendo, uma avaliação profissional pode ajudar a organizar esse momento e definir os próximos passos.
+          Se você percebeu mudanças que estão afetando seu sono, energia, emoções ou rotina, uma avaliação psiquiátrica pode ajudar a compreender melhor o que está acontecendo e definir os próximos passos do cuidado.
         </p>
         <CtaButton variant="light" className="mt-9"><WhatsAppIcon className="size-5" /> Agendar uma consulta</CtaButton>
         <p className="mt-6 text-sm text-primary-foreground/70">Presencial em Presidente Prudente | Atendimento online</p>
@@ -193,19 +226,20 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
           <Logo placement="footer" />
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">{SITE.name}</span><br />{SITE.specialty}<br />{SITE.crm}</p>
-          <address className="mt-4 text-sm not-italic leading-relaxed text-muted-foreground">{a.street} — {a.district}<br />{a.city} | {a.zip}</address>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">{SITE.name}</span><br />{SITE.qualification}<br />{SITE.crm}</p>
+          <address className="mt-4 text-base not-italic leading-relaxed text-muted-foreground">{a.street} — {a.district}<br />{a.city} | {a.zip}</address>
         </div>
-        <nav aria-label="Rodapé" className="grid grid-cols-2 gap-2 text-sm">
-          {NAV.map((n) => <a key={n.href} href={n.href} className="text-muted-foreground hover:text-primary">{n.label}</a>)}
+        <nav aria-label="Rodapé" className="grid grid-cols-2 gap-2 text-base">
+          {NAV.map((n) => <a key={n.href} href={n.href} className="flex min-h-11 items-center text-muted-foreground hover:text-primary">{n.label}</a>)}
         </nav>
-        <div className="flex flex-col items-start gap-3 text-sm">
-          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><WhatsAppIcon className="size-5" /> WhatsApp</a>
-          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold text-primary"><MapPin className="size-5" /> Localização</a>
-          {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Dra. Vanessa Ballista: @dravanessaballista (abre em nova aba)" className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"><Instagram className="size-5 shrink-0" aria-hidden="true" /> @dravanessaballista</a>}
+        <div className="flex flex-col items-start gap-3 text-base">
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-2 font-semibold text-primary"><WhatsAppIcon className="size-5" /> WhatsApp</a>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-2 font-semibold text-primary"><MapPin className="size-5" /> Localização</a>
+          {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Dra. Vanessa Ballista: @dravanessaballista (abre em nova aba)" className="flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"><Instagram className="size-6 shrink-0" aria-hidden="true" /> @dravanessaballista</a>}
         </div>
       </div>
-      <div className="border-t border-border px-5 py-6 text-center text-xs leading-relaxed text-muted-foreground">
+      <div className="flex flex-wrap justify-center gap-x-6 px-5 pb-6 text-sm text-muted-foreground"><Link to="/privacidade" className="inline-flex min-h-11 items-center">Política de Privacidade</Link><Link to="/termos" className="inline-flex min-h-11 items-center">Termos de Uso</Link></div>
+      <div className="border-t border-border px-5 py-6 text-center text-sm leading-relaxed text-muted-foreground">
         As informações apresentadas nesta página têm caráter informativo e não substituem uma avaliação médica individualizada.
         <br />© {new Date().getFullYear()} {SITE.name} · {SITE.specialty}
       </div>
