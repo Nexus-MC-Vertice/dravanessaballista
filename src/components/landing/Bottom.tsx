@@ -121,12 +121,17 @@ export function Location() {
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           <Reveal className="overflow-hidden rounded-3xl bg-card">
             <iframe title="Mapa do consultório" src={SITE.mapsEmbed} loading="lazy" className="h-64 w-full border-0 sm:h-80" referrerPolicy="no-referrer-when-downgrade" />
-            <div className="flex flex-col gap-5 p-7 sm:flex-row sm:items-center sm:justify-between">
-              <address className="flex gap-3 not-italic leading-relaxed text-primary">
-                <MapPin className="mt-1 size-5 shrink-0 text-secondary" />
-                <span><strong className="font-semibold">{a.street}</strong><br />{a.district}<br />{a.city}<br />{a.zip}</span>
-              </address>
-              <CtaButton variant="ghost" href={SITE.mapsUrl}>Ver no Google Maps</CtaButton>
+            <div className="grid gap-8 p-7 sm:grid-cols-2 sm:gap-6">
+              {[{ a, url: SITE.mapsUrl, label: "Presidente Prudente" }, { a: SITE.address2, url: SITE.mapsUrl2, label: "Santo Anastácio" }].map((o, i) => (
+                <div key={o.label} className={i ? "border-t border-border pt-8 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0" : ""}>
+                  <p className="eyebrow mb-3">{o.label}</p>
+                  <address className="flex gap-3 not-italic leading-relaxed text-primary">
+                    <MapPin className="mt-1 size-5 shrink-0 text-secondary" />
+                    <span><strong className="font-semibold">{o.a.street}</strong><br />{o.a.district}<br />{o.a.city}<br />{o.a.zip}</span>
+                  </address>
+                  <a href={o.url} target="_blank" rel="noopener noreferrer" className="mt-4 ml-8 inline-flex min-h-11 items-center border-b border-primary/40 font-semibold text-primary transition-colors hover:border-primary">Ver no Google Maps →</a>
+                </div>
+              ))}
             </div>
           </Reveal>
           <Reveal className="flex flex-col rounded-3xl bg-primary p-8 text-primary-foreground">
@@ -162,7 +167,7 @@ const FAQS = [
   ],
   [
     "A consulta pode ser realizada online?",
-    "Sim. A Dra. Vanessa realiza atendimentos online, além das consultas presenciais em Presidente Prudente, conforme as condições aplicáveis ao atendimento médico por telemedicina."
+    "Sim. A Dra. Vanessa realiza atendimentos online, além das consultas presenciais em Presidente Prudente e Santo Anastácio, conforme as condições aplicáveis ao atendimento médico por telemedicina."
   ],
   [
     "A Dra. Vanessa atende por convênio?",
@@ -178,7 +183,7 @@ const FAQS = [
   ],
   [
     "Onde fica o consultório?",
-    "O consultório está localizado em Presidente Prudente, São Paulo. O endereço completo e a localização no mapa estão disponíveis na seção de localização da página."
+    "Os atendimentos presenciais acontecem em dois consultórios no interior de São Paulo: em Presidente Prudente, na Rua Sete de Setembro, 2038 – Vila do Estádio, e em Santo Anastácio, na Rua Joaquim Nabuco, 419 – Centro. Os endereços completos e a localização no mapa estão disponíveis na seção de localização da página."
   ],
   [
     "Como saber se está na hora de procurar uma psiquiatra?",
@@ -227,7 +232,7 @@ export function Footer() {
         <div>
           <Logo placement="footer" />
           <p className="mt-5 text-base leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">{SITE.name}</span><br />{SITE.qualification}<br />{SITE.crm}</p>
-          <address className="mt-4 text-base not-italic leading-relaxed text-muted-foreground">{a.street} — {a.district}<br />{a.city} | {a.zip}</address>
+          <address className="mt-4 text-base not-italic leading-relaxed text-muted-foreground">{a.street} — {a.district}<br />{a.city} | {a.zip}<br /><span className="mt-2 block">{SITE.address2.street} — {SITE.address2.district}<br />{SITE.address2.city} | {SITE.address2.zip}</span></address>
         </div>
         <nav aria-label="Rodapé" className="grid grid-cols-2 gap-2 text-base">
           {NAV.map((n) => <a key={n.href} href={n.href} className="flex min-h-11 items-center text-muted-foreground hover:text-primary">{n.label}</a>)}

@@ -62,7 +62,7 @@ export function Hero() {
       <div className="absolute inset-y-0 right-0 hidden w-[42%] bg-sand lg:block" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-10 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-28 lg:pt-24">
         <div className="animate-fade-up">
-          <p className="eyebrow mb-5">Psiquiatria · Presidente Prudente e online</p>
+          <p className="eyebrow mb-5">Psiquiatria · Presidente Prudente, Santo Anastácio e online</p>
           <p className="mb-4 text-lg font-semibold text-primary">{SITE.name}</p>
           <h1 className="text-[2.1rem] font-semibold leading-[1.12] sm:text-5xl lg:text-[3.4rem]">
             Quando cuidar de você passa a ser uma necessidade, não adie esse cuidado.
