@@ -15,6 +15,14 @@ export const SITE = {
     city: "Presidente Prudente – SP",
     zip: "19015-080",
   },
+  address2: {
+    street: "Rua Joaquim Nabuco, 419",
+    district: "Centro",
+    city: "Santo Anastácio – SP",
+    zip: "19360-079",
+  },
+  mapsUrl2:
+    "https://www.google.com/maps/search/?api=1&query=Rua+Joaquim+Nabuco+419+Centro+Santo+Anastacio+SP",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Rua+Sete+de+Setembro+2038+Vila+do+Estadio+Presidente+Prudente+SP",
   mapsEmbed:
