@@ -3,7 +3,7 @@ import { Menu, X, MapPin, Monitor } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
 import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
-import logoAsset from "@/assets/logo-vanessa-ballista.jpg.asset.json";
+import logoAsset from "@/assets/logo-vanessa-ballista-transparente.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 
@@ -20,8 +20,8 @@ export const NAV = [
 export function Logo({ placement = "navbar" }: { placement?: "navbar" | "footer" }) {
   return (
     <a href="#inicio" aria-label="Dra. Vanessa Ballista — início" className="inline-flex shrink-0 items-center">
-      <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1063} height={591}
-        className={placement === "footer" ? "h-28 w-auto max-w-full object-contain" : "h-[60px] w-auto object-contain sm:h-[66px]"} />
+      <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1469} height={784}
+        className={placement === "footer" ? "h-32 w-auto max-w-full object-contain" : "h-[60px] w-auto object-contain sm:h-[68px]"} />
     </a>
   );
 }
