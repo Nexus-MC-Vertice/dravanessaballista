@@ -218,7 +218,7 @@ export function FinalCta() {
           Se você percebeu mudanças que estão afetando seu sono, energia, emoções ou rotina, uma avaliação psiquiátrica pode ajudar a compreender melhor o que está acontecendo e definir os próximos passos do cuidado.
         </p>
         <CtaButton variant="light" className="mt-9"><WhatsAppIcon className="size-5" /> Agendar uma consulta</CtaButton>
-        <p className="mt-6 text-sm text-primary-foreground/70">Presencial em Presidente Prudente | Atendimento online</p>
+        <p className="mt-6 text-sm text-primary-foreground/70">Presencial em Presidente Prudente e Santo Anastácio | Atendimento online</p>
       </Reveal>
     </section>
   );
