@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#areas", label: "Cuidados" },
+  { href: "#areas", label: "Tratamentos" },
   { href: "#metodo", label: "Método CUIDAR" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#faq", label: "FAQ" },
