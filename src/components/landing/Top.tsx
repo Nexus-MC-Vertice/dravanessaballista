@@ -120,14 +120,14 @@ const AREAS = [
   { t: "Transtornos de Ansiedade", d: "Avaliação e acompanhamento de quadros de ansiedade que podem interferir na rotina, no sono, nos relacionamentos e no bem-estar." },
   { t: "Luto", d: "Cuidado profissional diante de perdas e períodos de sofrimento emocional, respeitando a história e o tempo de cada pessoa." },
   { t: "Burnout e Esgotamento Emocional", d: "Avaliação de situações de sobrecarga e esgotamento, considerando também o contexto pessoal e profissional que pode estar relacionado ao sofrimento." },
-  { t: "TDAH", d: "Avaliação de dificuldades persistentes de atenção, organização, inquietação ou impulsividade, em adultos, considerando a história de vida e o impacto na rotina." },
+  { t: "TDAH", d: "Avaliação de dificuldades persistentes de atenção, organização, inquietação ou impulsividade, em adolescentes e adultos, considerando a história de vida e o impacto na rotina." },
   { t: "Transtorno Bipolar", d: "Acompanhamento de oscilações importantes de humor, energia e comportamento, com atenção contínua e plano de cuidado individualizado." },
   { t: "TOC (Transtorno Obsessivo-Compulsivo)", d: "Avaliação de pensamentos intrusivos e comportamentos repetitivos que geram sofrimento ou ocupam tempo significativo do dia a dia." },
-  { t: "Transtorno do Pânico", d: "Cuidado diante de crises súbitas de medo intenso, com sintomas físicos marcantes, e da preocupação constante com novas crises." },
+  { t: "Transtorno do Pânico", d: "Tratamento diante de crises súbitas de medo intenso, com sintomas físicos marcantes, e da preocupação constante com novas crises." },
   { t: "Transtorno do Espectro Autista (TEA)", d: "Avaliação e acompanhamento de características do espectro autista, respeitando a singularidade de cada pessoa e suas necessidades." },
-  { t: "Demências e Alterações Cognitivas", d: "Avaliação de mudanças na memória, no raciocínio ou no comportamento, com orientação ao paciente e à família ao longo do cuidado." },
+  { t: "Demências e Alterações Cognitivas", d: "Avaliação de mudanças na memória, no raciocínio ou no comportamento, com orientação ao paciente e à família ao longo do tratamento." },
   { t: "Esquizofrenia e Outros Transtornos Psicóticos", d: "Acompanhamento psiquiátrico cuidadoso de alterações na percepção, no pensamento e no comportamento, com proximidade e continuidade." },
-  { t: "Transtorno de Estresse Pós-Traumático", d: "Cuidado diante de lembranças intrusivas, evitação, alerta constante ou sofrimento persistente após experiências traumáticas." },
+  { t: "Transtorno de Estresse Pós-Traumático", d: "Tratamento diante de lembranças intrusivas, evitação, alerta constante ou sofrimento persistente após experiências traumáticas." },
 ];
 
 export function TreatmentCards() {
