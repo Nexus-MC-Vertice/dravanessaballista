@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, MapPin, Monitor } from "lucide-react";
+import { Menu, X, MapPin, Monitor, Plus } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
 import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
@@ -120,9 +120,18 @@ const AREAS = [
   { t: "Transtornos de Ansiedade", d: "Avaliação e acompanhamento de quadros de ansiedade que podem interferir na rotina, no sono, nos relacionamentos e no bem-estar." },
   { t: "Luto", d: "Cuidado profissional diante de perdas e períodos de sofrimento emocional, respeitando a história e o tempo de cada pessoa." },
   { t: "Burnout e Esgotamento Emocional", d: "Avaliação de situações de sobrecarga e esgotamento, considerando também o contexto pessoal e profissional que pode estar relacionado ao sofrimento." },
+  { t: "TDAH", d: "Avaliação de dificuldades persistentes de atenção, organização, inquietação ou impulsividade, em adultos, considerando a história de vida e o impacto na rotina." },
+  { t: "Transtorno Bipolar", d: "Acompanhamento de oscilações importantes de humor, energia e comportamento, com atenção contínua e plano de cuidado individualizado." },
+  { t: "TOC (Transtorno Obsessivo-Compulsivo)", d: "Avaliação de pensamentos intrusivos e comportamentos repetitivos que geram sofrimento ou ocupam tempo significativo do dia a dia." },
+  { t: "Transtorno do Pânico", d: "Cuidado diante de crises súbitas de medo intenso, com sintomas físicos marcantes, e da preocupação constante com novas crises." },
+  { t: "Transtorno do Espectro Autista (TEA)", d: "Avaliação e acompanhamento de características do espectro autista, respeitando a singularidade de cada pessoa e suas necessidades." },
+  { t: "Demências e Alterações Cognitivas", d: "Avaliação de mudanças na memória, no raciocínio ou no comportamento, com orientação ao paciente e à família ao longo do cuidado." },
+  { t: "Esquizofrenia e Outros Transtornos Psicóticos", d: "Acompanhamento psiquiátrico cuidadoso de alterações na percepção, no pensamento e no comportamento, com proximidade e continuidade." },
+  { t: "Transtorno de Estresse Pós-Traumático", d: "Cuidado diante de lembranças intrusivas, evitação, alerta constante ou sofrimento persistente após experiências traumáticas." },
 ];
 
 export function TreatmentCards() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
     <section id="areas" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
@@ -130,14 +139,26 @@ export function TreatmentCards() {
           <SectionHeading eyebrow="Áreas de tratamento" title="Algumas situações em que uma avaliação psiquiátrica pode ajudar"
             text="Cada pessoa chega ao consultório com uma história diferente. A avaliação considera os sintomas, o contexto e as particularidades de cada paciente para definir a melhor estratégia de cuidado." />
         </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {AREAS.map((a, i) => (
-            <Reveal key={a.t} className="group rounded-3xl border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-soft">
-              <span className="text-sm font-semibold text-secondary">0{i + 1}</span>
-              <h3 className="mt-6 text-lg font-semibold leading-snug">{a.t}</h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground">{a.d}</p>
-            </Reveal>
-          ))}
+        <div className="mt-12 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {AREAS.map((a, i) => {
+            const open = openIdx === i;
+            return (
+              <div key={a.t} className={`rounded-3xl border bg-card transition-all duration-300 ${open ? "border-secondary/50 shadow-soft" : "border-border hover:border-secondary/40"}`}>
+                <button type="button" onClick={() => setOpenIdx(open ? null : i)} aria-expanded={open} aria-controls={`area-${i}`}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+                  <h3 className="text-base font-semibold leading-snug sm:text-lg">{a.t}</h3>
+                  <span className={`flex size-8 shrink-0 items-center justify-center rounded-full border border-secondary/40 text-secondary transition-transform duration-300 ${open ? "rotate-45" : ""}`} aria-hidden>
+                    <Plus className="size-4" />
+                  </span>
+                </button>
+                <div id={`area-${i}`} className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-6 text-[0.95rem] leading-relaxed text-muted-foreground">{a.d}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
