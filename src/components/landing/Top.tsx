@@ -21,7 +21,7 @@ export function Logo({ placement = "navbar" }: { placement?: "navbar" | "footer"
   return (
     <a href="#inicio" aria-label="Dra. Vanessa Ballista — início" className="inline-flex shrink-0 items-center">
       <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1469} height={784}
-        className={placement === "footer" ? "h-32 w-auto max-w-full object-contain" : "h-[60px] w-auto object-contain sm:h-[68px]"} />
+        className={placement === "footer" ? "h-32 w-auto max-w-full object-contain" : "h-[64px] w-auto object-contain sm:h-[74px]"} />
     </a>
   );
 }
