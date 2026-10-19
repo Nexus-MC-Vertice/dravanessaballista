@@ -64,11 +64,11 @@ export function Hero() {
         <div className="animate-fade-up">
           <p className="eyebrow mb-5">Psiquiatria · Presidente Prudente, Santo Anastácio e online</p>
           <p className="mb-4 text-lg font-semibold text-primary">{SITE.name}</p>
-          <h1 className="text-[2.1rem] font-semibold leading-[1.12] sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="text-[1.85rem] font-semibold leading-[1.16] sm:text-[2.35rem] lg:text-[2.8rem]">
             Quando cuidar de você passa a ser uma necessidade, não adie esse cuidado.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Atendimento psiquiátrico particular em Presidente Prudente e online, com escuta individualizada, visão integrativa do cuidado e acompanhamento próximo.
+            Atendimento psiquiátrico particular em Presidente Prudente, Santo Anastácio e online, com escuta individualizada, visão integrativa do cuidado e acompanhamento próximo.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CtaButton><WhatsAppIcon className="size-5" /> Agendar uma consulta</CtaButton>
