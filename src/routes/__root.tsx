@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Dra. Vanessa Ballista | Psiquiatria" },
-      { name: "description", content: "Psiquiatria em Presidente Prudente e online." },
+      { name: "description", content: "Psiquiatria em Presidente Prudente, Santo Anastácio e online." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

@@ -5,25 +5,35 @@ import { TestimonialsCarousel, Location, FAQ, FinalCta, Footer, FloatingWhatsApp
 import { SITE } from "@/config/site";
 
 const TITLE = "Psiquiatria em Presidente Prudente e online | Dra. Vanessa Ballista";
-const DESC = "Dra. Vanessa Ballista, médica com especialização em Psiquiatria, CRM/SP 214.721. Consultas particulares em Presidente Prudente, SP, e online, com cuidado individualizado.";
+const DESC = "Dra. Vanessa Ballista, médica com especialização em Psiquiatria, CRM/SP 214.721. Consultas particulares em Presidente Prudente, Santo Anastácio e online, com cuidado individualizado.";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Physician",
   name: "Dra. Vanessa Ballista",
-  description: `${SITE.qualification}. Atendimento particular em Psiquiatria, presencial em Presidente Prudente e online.`,
+  description: `${SITE.qualification}. Atendimento particular em Psiquiatria, presencial em Presidente Prudente e Santo Anastácio, além de online.`,
   url: "https://dravanessaballista.lovable.app/",
   telephone: `+${SITE.whatsappNumber}`,
   sameAs: [SITE.instagram],
   availableService: { "@type": "MedicalTherapy", name: "Avaliação e acompanhamento em Psiquiatria" },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Rua Sete de Setembro, 2038 - Vila do Estádio",
-    addressLocality: "Presidente Prudente",
-    addressRegion: "SP",
-    postalCode: "19015-080",
-    addressCountry: "BR",
-  },
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: `${SITE.address.street} - ${SITE.address.district}`,
+      addressLocality: "Presidente Prudente",
+      addressRegion: "SP",
+      postalCode: SITE.address.zip,
+      addressCountry: "BR",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: `${SITE.address2.street} - ${SITE.address2.district}`,
+      addressLocality: "Santo Anastácio",
+      addressRegion: "SP",
+      postalCode: SITE.address2.zip,
+      addressCountry: "BR",
+    },
+  ],
 };
 
 export const Route = createFileRoute("/")({
