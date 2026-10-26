@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Menu, X, MapPin, Monitor, Plus } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
-import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
-import logoAsset from "@/assets/logo-vanessa-ballista-transparente.png.asset.json";
+import doctorPhoto from "@/assets/dra-vanessa-real.jpg";
+import logoAsset from "@/assets/logo-vanessa-ballista-transparente.png";
 import { Button } from "@/components/ui/button";
 
 
@@ -20,7 +20,7 @@ export const NAV = [
 export function Logo({ placement = "navbar" }: { placement?: "navbar" | "footer" }) {
   return (
     <a href="#inicio" aria-label="Dra. Vanessa Ballista — início" className="inline-flex shrink-0 items-center">
-      <img src={logoAsset.url} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1469} height={784}
+      <img src={logoAsset} alt="Dra. Vanessa Ballista — Saúde Mental / Psiquiatria" width={1469} height={784}
         className={placement === "footer" ? "h-32 w-auto max-w-full object-contain" : "h-[64px] w-auto object-contain sm:h-[74px]"} />
     </a>
   );
@@ -85,7 +85,7 @@ export function Hero() {
         </div>
         <div className="relative mx-auto w-full max-w-sm animate-fade-up lg:max-w-none" style={{ animationDelay: ".15s" }}>
           <div className="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-secondary/30" aria-hidden />
-          <img src={doctorPhoto.url} alt="Dra. Vanessa Ballista" width={1280} height={1920} fetchPriority="high"
+          <img src={doctorPhoto} alt="Dra. Vanessa Ballista" width={1280} height={1920} fetchPriority="high"
             className="relative aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-soft" />
         </div>
       </div>
