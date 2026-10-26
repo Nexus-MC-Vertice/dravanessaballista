@@ -2,8 +2,8 @@ import { Clock, Ear, MessageCircle, UserRound } from "lucide-react";
 import { SITE } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading } from "./ui";
 
-import officePhoto from "@/assets/consultorio-horizontal.jpg.asset.json";
-import doctorPhoto from "@/assets/dra-vanessa-real.jpg.asset.json";
+import officePhoto from "@/assets/consultorio-horizontal.jpg";
+import doctorPhoto from "@/assets/dra-vanessa-real.jpg";
 
 const PILLARS = [
   ["C", "Compreender", "Ouvir sua história, entender o que você está vivendo e identificar o que merece atenção."],
@@ -72,7 +72,7 @@ export function AboutDoctor() {
     <section id="sobre" className="scroll-mt-20 bg-sand py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <Reveal>
-          <img src={doctorPhoto.url} alt="Dra. Vanessa Ballista" width={1280} height={1920} loading="lazy"
+          <img src={doctorPhoto} alt="Dra. Vanessa Ballista" width={1280} height={1920} loading="lazy"
             className="aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-soft" />
         </Reveal>
         <Reveal>
@@ -102,7 +102,7 @@ export function OfficePhoto() {
   return (
     <section className="py-16 sm:py-24" aria-label="Consultório">
       <Reveal className="mx-auto max-w-6xl px-5">
-        <img src={officePhoto.url} alt="Ambiente real do consultório da Dra. Vanessa Ballista em Presidente Prudente, SP" width={1376} height={768} loading="lazy" decoding="async"
+        <img src={officePhoto} alt="Ambiente real do consultório da Dra. Vanessa Ballista em Presidente Prudente, SP" width={1376} height={768} loading="lazy" decoding="async"
           className="aspect-video w-full rounded-[2rem] object-cover" />
         <p className="mx-auto mt-6 max-w-xl px-4 text-center text-base italic text-muted-foreground">
           “Um espaço pensado para proporcionar privacidade, tranquilidade e acolhimento.”
