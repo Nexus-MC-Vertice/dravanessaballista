@@ -247,6 +247,7 @@ export function Footer() {
       <div className="border-t border-border px-5 py-6 text-center text-sm leading-relaxed text-muted-foreground">
         As informações apresentadas nesta página têm caráter informativo e não substituem uma avaliação médica individualizada.
         <br />© {new Date().getFullYear()} {SITE.name} · {SITE.specialty}
+        <br />Desenvolvido por <a href="https://wa.me/5511943835995" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">Nexus MC</a>
       </div>
     </footer>
   );
