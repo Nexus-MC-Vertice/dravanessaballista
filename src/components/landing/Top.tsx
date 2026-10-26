@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Menu, X, MapPin, Monitor, Plus } from "lucide-react";
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
-import doctorPhoto from "@/assets/dra-vanessa-real.jpg";
-import logoAsset from "@/assets/logo-vanessa-ballista-transparente.png";
+import doctorPhoto from "@/assets/dra-vanessa-real.webp";
+import logoAsset from "@/assets/logo-vanessa-ballista-transparente.webp";
 import { Button } from "@/components/ui/button";
 
 

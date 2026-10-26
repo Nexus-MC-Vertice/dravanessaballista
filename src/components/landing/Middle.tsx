@@ -2,8 +2,8 @@ import { Clock, Ear, MessageCircle, UserRound } from "lucide-react";
 import { SITE } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading } from "./ui";
 
-import officePhoto from "@/assets/consultorio-horizontal.jpg";
-import doctorPhoto from "@/assets/dra-vanessa-real.jpg";
+import officePhoto from "@/assets/consultorio-horizontal.webp";
+import doctorPhoto from "@/assets/dra-vanessa-real.webp";
 
 const PILLARS = [
   ["C", "Compreender", "Ouvir sua história, entender o que você está vivendo e identificar o que merece atenção."],
