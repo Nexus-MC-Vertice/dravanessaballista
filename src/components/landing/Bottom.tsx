@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { SITE, whatsappLink } from "@/config/site";
 import { CtaButton, Reveal, SectionHeading, WhatsAppIcon } from "./ui";
 import { Logo, NAV } from "./Top";
+import { openConsentSettings } from "@/lib/consent";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
@@ -243,7 +244,7 @@ export function Footer() {
           {SITE.instagram && <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Dra. Vanessa Ballista: @dravanessaballista (abre em nova aba)" className="flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"><Instagram className="size-6 shrink-0" aria-hidden="true" /> @dravanessaballista</a>}
         </div>
       </div>
-      <div className="flex flex-wrap justify-center gap-x-6 px-5 pb-6 text-sm text-muted-foreground"><Link to="/privacidade" className="inline-flex min-h-11 items-center">Política de Privacidade</Link><Link to="/termos" className="inline-flex min-h-11 items-center">Termos de Uso</Link></div>
+      <div className="flex flex-wrap justify-center gap-x-6 px-5 pb-6 text-sm text-muted-foreground"><Link to="/privacidade" className="inline-flex min-h-11 items-center">Política de Privacidade</Link><Link to="/termos" className="inline-flex min-h-11 items-center">Termos de Uso</Link><button type="button" onClick={openConsentSettings} className="inline-flex min-h-11 items-center">Preferências de cookies</button></div>
       <div className="border-t border-border px-5 py-6 text-center text-sm leading-relaxed text-muted-foreground">
         As informações apresentadas nesta página têm caráter informativo e não substituem uma avaliação médica individualizada.
         <br />© {new Date().getFullYear()} {SITE.name} · {SITE.specialty}
