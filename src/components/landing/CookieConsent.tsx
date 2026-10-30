@@ -24,7 +24,7 @@ export function CookieConsent() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
         <p className="text-[0.85rem] leading-relaxed text-muted-foreground sm:text-sm">
           <span className="font-semibold text-primary">Sua privacidade importa.</span>{" "}
-          Usamos cookies para medir visitas e melhorar sua experiência, sem coletar dados de saúde. Você decide.{" "}
+          Usamos cookies para medir visitas e melhorar sua experiência, sem coletar dados de saúde.{" "}
           <Link to="/privacidade" className="font-medium text-primary underline underline-offset-2">Saiba mais</Link>
         </p>
         <div className="flex shrink-0 gap-2">
