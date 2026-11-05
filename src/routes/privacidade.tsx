@@ -8,8 +8,8 @@ export const Route = createFileRoute("/privacidade")({
     { title }, { name: "description", content: description },
     { property: "og:title", content: title }, { property: "og:description", content: description },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
-    { property: "og:url", content: "https://dravanessaballista.lovable.app/privacidade" },
-  ], links: [{ rel: "canonical", href: "https://dravanessaballista.lovable.app/privacidade" }] }),
+    { property: "og:url", content: "https://dravanessaballista.com.br/privacidade" },
+  ], links: [{ rel: "canonical", href: "https://dravanessaballista.com.br/privacidade" }] }),
   component: Privacy,
 });
 function Privacy() {

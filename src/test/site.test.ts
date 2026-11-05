@@ -29,3 +29,15 @@ describe('Appointment contact configuration', () => {
     expect(whatsappLink('')).toBe('#contato');
   });
 });
+
+import { readFileSync } from 'node:fs';
+describe('SEO files', () => {
+  it('robots.txt points to the official sitemap', () => {
+    expect(readFileSync('public/robots.txt', 'utf8')).toContain('Sitemap: https://dravanessaballista.com.br/sitemap.xml');
+  });
+  it('sitemap lists only the official domain', () => {
+    const xml = readFileSync('public/sitemap.xml', 'utf8');
+    expect(xml).toContain('<loc>https://dravanessaballista.com.br/</loc>');
+    expect(xml).not.toContain('lovable.app');
+  });
+});
