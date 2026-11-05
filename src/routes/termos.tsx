@@ -8,8 +8,8 @@ export const Route = createFileRoute("/termos")({
     { title }, { name: "description", content: description },
     { property: "og:title", content: title }, { property: "og:description", content: description },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
-    { property: "og:url", content: "https://dravanessaballista.lovable.app/termos" },
-  ], links: [{ rel: "canonical", href: "https://dravanessaballista.lovable.app/termos" }] }),
+    { property: "og:url", content: "https://dravanessaballista.com.br/termos" },
+  ], links: [{ rel: "canonical", href: "https://dravanessaballista.com.br/termos" }] }),
   component: Terms,
 });
 function Terms() {
