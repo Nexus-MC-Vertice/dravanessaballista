@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { initGtm } from "@/lib/gtm";
 import { CONSENT_KEY, OPEN_CONSENT_EVENT, readConsent, saveConsent, type ConsentChoice } from "@/lib/consent";
 
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => initGtm(), []);
 
   useEffect(() => {
     if (!readConsent()) setOpen(true);
